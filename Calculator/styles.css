@@ -1,0 +1,117 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --display: #f8fafc;
+  --button: #e2e8f0;
+  --button-operator: #f59e0b;
+  --button-action: #94a3b8;
+  --button-equals: #22c55e;
+  --shadow: rgba(15, 23, 42, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b 50%, #334155);
+  color: #fff;
+}
+
+.calculator {
+  width: min(92vw, 390px);
+  background: rgba(17, 24, 39, 0.95);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 24px 60px var(--shadow);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.display-screen {
+  min-height: 90px;
+  border-radius: 18px;
+  background: #dbeafe;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 18px;
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  word-break: break-all;
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.calc-btn {
+  border: none;
+  outline: none;
+  border-radius: 16px;
+  padding: 18px 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.18);
+}
+
+.calc-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+.calc-btn:active {
+  transform: translateY(1px);
+}
+
+.number {
+  background: var(--button);
+  color: #0f172a;
+}
+
+.operator,
+.action {
+  background: var(--button-action);
+  color: #fff;
+}
+
+.operator {
+  background: var(--button-operator);
+}
+
+.equals {
+  background: var(--button-equals);
+  color: #fff;
+  grid-row: span 2;
+}
+
+.zero {
+  grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+  .calculator {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .buttons-grid {
+    gap: 10px;
+  }
+
+  .calc-btn {
+    padding: 16px 8px;
+    font-size: 1.2rem;
+  }
+}
